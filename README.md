@@ -1,7 +1,7 @@
 .tmux
 =====
 
-Self-contained, pretty and versatile `.tmux.conf` configuration file.
+Self-contained, pretty and versatile `tmux.conf` configuration file.
 
 ![Screenshot](https://cloud.githubusercontent.com/assets/553208/19740585/85596a5a-9bbf-11e6-8aa1-7c8d9829c008.gif)
 
@@ -21,27 +21,12 @@ You can install Oh my tmux! at any of the following locations:
 - `$XDG_CONFIG_HOME/tmux`
 - `~/.config/tmux`
 
-Installing in `~`:
-```
-$ cd
-$ git clone https://github.com/haoliplus/tmux.git ${HOME}/.config/tmux
-$ rm ${HOME}/.tmux.conf
-```
-
 Installing in `$XDG_CONFIG_HOME/tmux`:
-```
-$ git clone https://github.com/gpakosz/.tmux.git "/path/to/oh-my-tmux"
-$ mkdir -p "$XDG_CONFIG_HOME/tmux"
-$ ln -s "/path/to/oh-my-tmux/.tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
-$ cp "/path/to/oh-my-tmux/.tmux.conf.local" "$XDG_CONFIG_HOME/tmux/tmux.conf.local"
-```
-
 Installing in `~/.config/tmux`:
 ```
-$ git clone https://github.com/gpakosz/.tmux.git "/path/to/oh-my-tmux"
-$ mkdir -p "~/.config/tmux"
-$ ln -s "/path/to/oh-my-tmux/.tmux.conf" "~/.config/tmux/tmux.conf"
-$ cp "/path/to/oh-my-tmux/.tmux.conf.local" "~/.config/tmux/tmux.conf.local"
+$ git clone https://github.com/haoliplus/tmux.git "${HOME}/.config/tmux"
+$ export TMUX_CONF=${XDG_CONFIG_HOME}/tmux/tmux.conf
+$ export TMUX_CONF_LOCAL=${XDG_CONFIG_HOME}/tmux/.tmux.conf.local
 ```
 ⚠️ When installing `$XDG_CONFIG_HOME/tmux` or `~/.config/tmux`, the configuration
 file names don't have a leading `.` character.
