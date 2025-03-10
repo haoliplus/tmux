@@ -20,6 +20,8 @@ tmux_conf_preserve_stock_bindings=false
 
 # set -g default-terminal ",xterm-256color:Tc"
 # set-option -a terminal-features 'xterm-256color:RGB'
+
+set-option -a terminal-features 'xterm-256color:RGB'
 set-option -a terminal-overrides 'xterm-256color:Tc'
 
 
