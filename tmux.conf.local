@@ -26,6 +26,7 @@ set-option -a terminal-features 'xterm-256color:RGB'
 set-option -a terminal-overrides 'xterm-256color:Tc'
 
 unbind C-a
+set -g prefix2 C-b                        # GNU-Screen compatible prefix
 bind -r p previous-window # select previous window
 bind -r n next-window     # select next window
 
