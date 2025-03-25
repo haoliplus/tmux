@@ -8,6 +8,7 @@
 set -s extended-keys on
 set-option -g xterm-keys on
 set -as terminal-features 'xterm*:extkeys'
+set -s set-clipboard on
 
 # -- bindings ------------------------------------------------------------------
 
