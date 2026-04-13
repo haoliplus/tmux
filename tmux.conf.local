@@ -11,6 +11,11 @@ set -as terminal-features 'xterm*:extkeys'
 set -s set-clipboard on
 
 set -s allow-passthrough on
+
+# Keep tmux run-shell jobs independent from the launcher's PATH. TPM and
+# plugins use /usr/bin/env bash, which returns 127 if /bin is missing.
+set-environment -g PATH "$PATH:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # -- bindings ------------------------------------------------------------------
 
 # preserve tmux stock bindings,
