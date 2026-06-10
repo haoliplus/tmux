@@ -4,6 +4,11 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+bind-key -n M-[ switch-client -p
+bind-key -n M-] switch-client -n
+bind-key -n M-h previous-window
+bind-key -n M-l next-window
+
 # Turn on Xterm Keys for modifier keys pass through
 set -s extended-keys on
 set-option -g xterm-keys on
