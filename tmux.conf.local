@@ -6,17 +6,22 @@
 
 bind-key -n M-[ switch-client -p
 bind-key -n M-] switch-client -n
+# bind-key -n M-p switch-client -p
+# bind-key -n M-n switch-client -n
 bind-key -n M-h previous-window
 bind-key -n M-l next-window
 
 # Turn on Xterm Keys for modifier keys pass through
 set -s extended-keys on
 set-option -g xterm-keys on
-set -as terminal-features 'xterm*:extkeys'
+set -s terminal-features[3] 'xterm*:extkeys'
 set -s set-clipboard on
 
-set -s allow-passthrough on
+# Keep passthrough disabled: OSC color query replies can leak back as pane input
+# when switching sessions in some terminals.
+set -s allow-passthrough off
 
+set -g extended-keys-format csi-u
 # Keep tmux run-shell jobs independent from the launcher's PATH. TPM and
 # plugins use /usr/bin/env bash, which returns 127 if /bin is missing.
 set-environment -g PATH "$PATH:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -34,8 +39,8 @@ tmux_conf_preserve_stock_bindings=false
 # set -g default-terminal ",xterm-256color:Tc"
 # set-option -a terminal-features 'xterm-256color:RGB'
 
-set-option -a terminal-features 'xterm-256color:RGB'
-set-option -a terminal-overrides 'xterm-256color:Tc'
+set -s terminal-features[4] 'xterm-256color:RGB'
+set -s terminal-overrides[1] 'xterm-256color:Tc'
 
 unbind C-a
 set -g prefix2 C-b                        # GNU-Screen compatible prefix
