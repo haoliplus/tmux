@@ -433,6 +433,7 @@ set -g mouse on
 bind c new-window -c '#{pane_current_path}' #!important
 bind n next-window 
 bind p previous-window
+bind R run-shell 'stty sane icanon echo icrnl isig < "#{pane_tty}"' \; display-message 'reset tty for #{pane_tty}'
 
 # move status line to top
 #set -g status-position top
