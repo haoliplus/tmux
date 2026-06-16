@@ -17,9 +17,11 @@ set-option -g xterm-keys on
 set -s terminal-features[3] 'xterm*:extkeys'
 set -s set-clipboard on
 
-# Keep passthrough disabled: OSC color query replies can leak back as pane input
-# when switching sessions in some terminals.
-set -s allow-passthrough off
+# Keep pane passthrough enabled for terminal-integrated apps such as opencode
+# that use OSC sequences for in-app clipboard copy.
+# If OSC color query replies leak into panes while switching sessions, fix the
+# program that sends OSC 10/11 queries instead of disabling passthrough globally.
+set -g allow-passthrough on
 
 set -g extended-keys-format csi-u
 # Keep tmux run-shell jobs independent from the launcher's PATH. TPM and
