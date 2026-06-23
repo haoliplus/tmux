@@ -4,8 +4,12 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
-bind-key -n M-[ switch-client -p
-bind-key -n M-] switch-client -n
+# Avoid binding raw Alt-[ / Alt-] globally: terminal apps can emit ESC [ / ESC ]
+# control sequences, which tmux may parse as these keys and switch sessions.
+unbind-key -n M-[
+unbind-key -n M-]
+# bind-key -n M-[ switch-client -p
+# bind-key -n M-] switch-client -n
 # bind-key -n M-p switch-client -p
 # bind-key -n M-n switch-client -n
 bind-key -n M-h previous-window
