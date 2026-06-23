@@ -12,9 +12,12 @@ bind-key -n M-h previous-window
 bind-key -n M-l next-window
 
 # Turn on Xterm Keys for modifier keys pass through
+set -g default-terminal "tmux-256color"
 set -s extended-keys on
 set-option -g xterm-keys on
-set -s terminal-features[3] 'xterm*:extkeys'
+set -as terminal-features ',xterm*:extkeys'
+set -as terminal-features ',tmux-256color:RGB'
+set -as terminal-features ',xterm-256color:RGB'
 set -s set-clipboard on
 
 # Keep pane passthrough enabled for terminal-integrated apps such as opencode
@@ -38,11 +41,9 @@ set-environment -g SSH_AUTH_SOCK "$HOME/.ssh/ssh_auth_sock"
 #   - false (default)
 tmux_conf_preserve_stock_bindings=false
 
-# set -g default-terminal ",xterm-256color:Tc"
-# set-option -a terminal-features 'xterm-256color:RGB'
-
-set -s terminal-features[4] 'xterm-256color:RGB'
-set -s terminal-overrides[1] 'xterm-256color:Tc'
+# Keep truecolor advertised for terminals that still rely on Tc.
+set -as terminal-overrides ',xterm-256color:Tc'
+set -as terminal-overrides ',tmux-256color:Tc'
 
 unbind C-a
 set -g prefix2 C-b                        # GNU-Screen compatible prefix
